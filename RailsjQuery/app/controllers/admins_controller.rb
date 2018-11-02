@@ -1,7 +1,8 @@
 class AdminsController < ApplicationController
 
   def index
-
+    @admins = Admin.all
+    @admin = Admin.new
   end
 
   def new
