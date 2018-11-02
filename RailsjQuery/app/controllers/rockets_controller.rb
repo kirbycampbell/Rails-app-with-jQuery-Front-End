@@ -1,4 +1,4 @@
-class RocketController < ApplicationController
+class RocketsController < ApplicationController
   def new
     @rocket = Rocket.new
   end
