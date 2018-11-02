@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :engineers
   resources :pilots
   resources :rockets
+  resources :admins
   root 'static#index'
 end
