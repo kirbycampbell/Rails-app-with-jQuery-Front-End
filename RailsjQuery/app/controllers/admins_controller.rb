@@ -13,7 +13,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.save
       #log_in @admin
-      flash[:notice] = "Welcome to the The You Verse!"
+      flash[:notice] = "Welcome to Space X Admin!"
       redirect_to @admin
     else
       flash[:notice] = "Messed up!"
