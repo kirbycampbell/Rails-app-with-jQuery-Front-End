@@ -18,6 +18,11 @@ class RocketsController < ApplicationController
     end
   end
 
+  def show
+    @rocket = Rocket.find(params[:id])
+    render json: @rocket, status: 200
+  end
+
 private
 
 def rocket_params
