@@ -1,4 +1,4 @@
 class Pilot < ApplicationRecord
-  has_a :rocket
-  
+  has_one :rocket
+
 end

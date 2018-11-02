@@ -1,3 +1,3 @@
 class Engineer < ApplicationRecord
-  belongs_to :rocket
+  belongs_to :rockets
 end
