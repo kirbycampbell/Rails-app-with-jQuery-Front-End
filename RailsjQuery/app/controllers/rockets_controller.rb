@@ -26,7 +26,8 @@ class RocketsController < ApplicationController
 private
 
 def rocket_params
-  params.require(:rocket).permit(:name, :top_speed, :capacity, :engineer_id, :pilot_id)
+  #raise params.inspect
+  params.require(:rocket).permit(:name, :top_speed, :capacity, :rocket_engineer_relation, :pilot_id)
 end
 
 end

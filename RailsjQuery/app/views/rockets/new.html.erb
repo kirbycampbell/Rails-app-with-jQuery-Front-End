@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :engineer %><br>
-    <%= f.collection_select :engineer_id, Engineer.order(:first_name), :id, :last_name %><br>
+    <%= f.collection_select :rocket_engineer_relations, Engineer.order(:first_name), :id, :last_name %><br>
   </div>
 
   <div class="actions">
