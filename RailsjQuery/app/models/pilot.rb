@@ -1,4 +1,5 @@
 class Pilot < ApplicationRecord
-  has_one :rocket
+  has_many :rocket_relations
+  has_many :rockets, :through => :rocket_relations
 
 end

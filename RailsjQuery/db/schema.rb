@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_162053) do
+ActiveRecord::Schema.define(version: 2018_11_02_162925) do
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 2018_11_02_162053) do
     t.datetime "updated_at", null: false
     t.integer "rocket_id"
     t.index ["rocket_id"], name: "index_pilots_on_rocket_id"
+  end
+
+  create_table "rocket_relations", force: :cascade do |t|
+    t.integer "engineer_id"
+    t.integer "pilot_id"
+    t.index ["engineer_id"], name: "index_rocket_relations_on_engineer_id"
+    t.index ["pilot_id"], name: "index_rocket_relations_on_pilot_id"
   end
 
   create_table "rockets", force: :cascade do |t|
