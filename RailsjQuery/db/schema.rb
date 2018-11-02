@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_162925) do
+ActiveRecord::Schema.define(version: 2018_11_02_165730) do
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 2018_11_02_162925) do
     t.string "credentials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rocket_id"
-    t.index ["rocket_id"], name: "index_engineers_on_rocket_id"
   end
 
   create_table "pilots", force: :cascade do |t|
@@ -37,15 +35,15 @@ ActiveRecord::Schema.define(version: 2018_11_02_162925) do
     t.string "slogan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rocket_id"
-    t.index ["rocket_id"], name: "index_pilots_on_rocket_id"
   end
 
-  create_table "rocket_relations", force: :cascade do |t|
+  create_table "rocket_engineer_relations", force: :cascade do |t|
+    t.integer "rocket_id"
     t.integer "engineer_id"
-    t.integer "pilot_id"
-    t.index ["engineer_id"], name: "index_rocket_relations_on_engineer_id"
-    t.index ["pilot_id"], name: "index_rocket_relations_on_pilot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["engineer_id"], name: "index_rocket_engineer_relations_on_engineer_id"
+    t.index ["rocket_id"], name: "index_rocket_engineer_relations_on_rocket_id"
   end
 
   create_table "rockets", force: :cascade do |t|

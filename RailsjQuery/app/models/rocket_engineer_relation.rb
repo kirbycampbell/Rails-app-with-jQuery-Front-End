@@ -1,6 +1,6 @@
-class Engineer < ApplicationRecord
-  has_many :rocket_engineer_relations
-  has_many :rockets, :through => :rocket_engineer_relations
+class RocketEngineerRelation < ApplicationRecord
+  belongs_to :rocket
+  belongs_to :engineer
 end
 
 #Relation Example
