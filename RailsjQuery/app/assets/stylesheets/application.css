@@ -14,70 +14,30 @@
  *= require_self
  */
 
- .nav-bar{
-   padding: 40px;
-   margin: 0px;
-   width: 100%;
-   background: linear-gradient(-45deg, #590101, #150f3d);
-   box-sizing: border-box;
-   display: grid;
-   grid-template-columns: 20% 2fr;
-   grid-gap: 6%;
-   list-style: none;
+ /* Add a black background color to the top navigation */
+ .topnav {
+     background-color: #333;
+     overflow: hidden;
  }
 
- body{
-   background-color: #31333a;
-   color: #fffbf4;
-
+ /* Style the links inside the navigation bar */
+ .topnav a {
+     float: left;
+     color: #f2f2f2;
+     text-align: center;
+     padding: 2% 4%;
+     text-decoration: none;
+     font-size: 17px;
  }
 
- /*.button-words{
-   color: white;
-   display: block;
-   font-size: 12%;
-   flex-grow: 1;
-   flex-shrink: 1;
-   justify-content: center;
-   padding: 5%;
-   text-decoration: none;
-   border-radius: 5px;
-   background: #49295e;
+ /* Change the color of links on hover */
+ .topnav a:hover {
+     background-color: #ddd;
+     color: black;
  }
-*/
 
-
-
-.container {
-	position: relative;
-  align-items: flex-start;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	height: 5%;
-	width: 15%;
-	margin: auto;
-}
-*[data-animation="ripple"] {
-	height: 100%;
-	width: 100%;
-	display:run-in;
-	outline: none;
-	padding: 10%;
-	color: #fff;
-	text-transform: uppercase;
-	background: linear-gradient(135deg, #e570e7 0%,#79f1fc 100%);
-	box-sizing: border-box;
-	text-align: center;
-	line-height: 6%;
-	font-family: roboto, helvetica;
-	font-weight: 200;
-	letter-spacing: 1%;
-	text-decoration: none;
-	box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3);
-	cursor: pointer;
-  /*border-radius: 50px;*/
-	-webkit-tap-highlight-color: transparent;
-	border-radius: 5px;
-}
+ /* Add a color to the active/current link */
+ .topnav a.active {
+     background-color: #4CAF50;
+     color: white;
+ }
