@@ -33,9 +33,9 @@
 <% end %>
 
 <div id="rocketResult">
-  <h2 id="rocketName"></h2>
-  <span id="rocketSpeed"></span>
-  <p id="rocketPilot"></p>
+  <h2>Rocket Name: </h2><h2 id="rocketName"></h2>
+  <p>Rocket Speed: </p><p id="rocketSpeed"></p>
+  <p>Rocket Pilot: </p><p id="rocketPilot"></p>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -51,7 +51,7 @@ $(function () {
       var rocket = data;
       $("#rocketName").text(rocket["name"]);
       $("#rocketSpeed").text(rocket["top_speed"]);
-      $(".rocketCapacity").text(rocket["capcity"]);
+      $("#rocketCapacity").text(rocket["capcity"]);
       $("#rocketPilot").text(rocket["pilot"]["last_name"]);
     });
   });
