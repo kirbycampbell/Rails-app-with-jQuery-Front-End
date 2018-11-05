@@ -8,19 +8,16 @@ class RocketsController < ApplicationController
   end
 
   def create
-    @rocket = Rocket.new(rocket_params)
-    if @rocket.save
-      flash[:notice] = "Rocket Created"
-      redirect_to :rockets
-    else
-      flash[:notice] = "Something was missing"
-      render :new
-    end
+    rocket = Rocket.create(rocket_params)
+    render json: rocket, status: 201
   end
 
   def show
     @rocket = Rocket.find(params[:id])
-    render json: @rocket, status: 200
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @rocket }
+    end
   end
 
 private

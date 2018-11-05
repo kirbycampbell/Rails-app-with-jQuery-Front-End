@@ -1,0 +1,23 @@
+<a href="#" id="js-next" data-id="<%=@rocket.id%>">Next Rocket</a>
+<h1 class="rocketName"><%= @rocket.name %></h1>
+<p class="rocketSpeed"><%= @rocket.top_speed %></p>
+<p class="rocketCapacity"><%= @rocket.capacity %></p>
+<p class="rocketPilot"><%= @rocket.pilot.last_name %></p>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $("#js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/rockets/" + nextId + ".json", function(data) {
+      raise data.inspect
+      var rocket = data;
+      $(".rocketName").text(rocket["name"]);
+      $(".rocketSpeed").text(rocket["top_speed"]);
+      $(".rocketCapacity").text(rocket["capcity"]);
+      $(".rocketPilot").text(rocket["pilot"]["last_name"]);
+      // re-set the id to current on the link
+      $("#js-next").attr("data-id", rocket["id"]);
+    });
+  });
+});
+</script>
