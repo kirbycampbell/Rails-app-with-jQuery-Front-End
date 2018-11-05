@@ -36,6 +36,7 @@ $(function () {
 });
 
 //New Page dynamic submission
+$(document).ready(function() {
 $(function () {
   $('form').submit(function(event) {
     event.preventDefault();
@@ -47,7 +48,9 @@ $(function () {
       var rocket = data;
       $("#rocketName").text(rocket["name"]);
       $("#rocketSpeed").text(rocket["top_speed"]);
+      $(".rocketCapacity").text(rocket["capcity"]);
       $("#rocketPilot").text(rocket["pilot"]["last_name"]);
     });
   });
+});
 });
