@@ -1,6 +1,5 @@
 class Rocket < ApplicationRecord
-  has_many :rocket_engineer_relations
-  has_many :engineers, :through => :rocket_engineer_relations
+  has_many :engineers
   belongs_to :pilot
 end
 

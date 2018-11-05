@@ -2,7 +2,7 @@
 
 
 <% @rockets.each do |rocket| %>
-  <h3 class="rocketName"><%= rocket.name %></h3>
+  <h3 class="rocketName"><%= link_to rocket.name, rocket %></h3>
   <button class="js-more" data-id="<%= rocket.id %>">More Info</button>
   <ul id="rocketSpeed-<%= rocket.id %>"></ul>
   <ul id="rocketCapacity-<%= rocket.id %>"></ul>

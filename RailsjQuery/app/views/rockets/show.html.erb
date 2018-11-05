@@ -1,5 +1,9 @@
 <a href=" " class="js-next" data-id="<%=@rocket.id%>">Next Rocket</a>
 <h1 class="rocketName"><%= @rocket.name %></h1>
-<p class="rocketSpeed"><%= @rocket.top_speed %></p>
-<p class="rocketCapacity"><%= @rocket.capacity %></p>
-<p class="rocketPilot"><%= @rocket.pilot.last_name %></p>
+<p class="rocketSpeed">Top Speed: <%= @rocket.top_speed %></p>
+<p class="rocketCapacity">Capacity: <%= @rocket.capacity %></p>
+<p class="rocketPilot">Pilot: <%= @rocket.pilot.last_name %></p>
+<p class="rocketEngineers">Engineers:<% @rocket.engineers.each do |engineer| %></p>
+  <p><%= engineer.first_name %> <%= engineer.last_name %></p>
+
+  <% end %>
