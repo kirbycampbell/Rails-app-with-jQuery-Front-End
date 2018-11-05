@@ -1,27 +1,27 @@
 <b>Rockets Index</b>
 
+
 <% @rockets.each do |rocket| %>
   <h3 class="rocketName"><%= rocket.name %></h3>
   <button class="js-more" data-id="<%= rocket.id %>">More Info</button>
-  <p id="rocketSpeed-<%= rocket.id %>"></p>
-  <p id="rocketCapacity-<%= rocket.id %>"></p>
-  <p id="rocketPilot-<%= rocket.id %>"></p><br>
+  <ul id="rocketSpeed-<%= rocket.id %>"></ul>
+  <ul id="rocketCapacity-<%= rocket.id %>"></ul>
+  <ul id="rocketPilot-<%= rocket.id %>"></ul><br>
 
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-$(function() {
-  $(".js-more").on("click", function() {
-    var id = $(this).data("id");
-    alert(id);
+  $(function() {
+    $(".js-more").on("click", function() {
+      var id = $(this).data("id");
     $.get("/rockets/" + id + ".json", function(data) {
       var rocket = data;
-      var rocketSpeed = "<p>" + rocket["top_speed"] + "</p>"";
+      var rocketSpeed = "<p>" + "Top Speed: " + rocket["top_speed"] + "</p>";
       $("#rocketSpeed-" + id).html(rocketSpeed);
-      var rocketCapacity = "<p>" + rocket["capacity"] + "</p>"";
+      var rocketCapacity = "<p>" + "Capacity: " + rocket["capacity"] + "</p>";
       $("#rocketCapacity-" + id).html(rocketCapacity);
-      var rocketPilot = "<p>" + rocket["pilot"] + "</p>"";
+      var rocketPilot = "<p>" + "Pilot Name: " + rocket["pilot"]["last_name"] + "</p>";
       $("#rocketPilot-" + id).html(rocketPilot);
     });
   });

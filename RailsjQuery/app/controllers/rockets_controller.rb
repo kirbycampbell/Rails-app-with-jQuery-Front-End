@@ -1,7 +1,6 @@
 class RocketsController < ApplicationController
   def index
     @rockets = Rocket.all
-    @admin = Admin.new
   end
   def new
     @rocket = Rocket.new
@@ -23,7 +22,6 @@ class RocketsController < ApplicationController
 private
 
 def rocket_params
-  #raise params.inspect
   params.require(:rocket).permit(:name, :top_speed, :capacity, :pilot_id)
 end
 

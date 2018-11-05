@@ -36,7 +36,7 @@ $(function () {
 });
 
 //New Page dynamic submission
-$(document).ready(function() {
+
 $(function () {
   $('form').submit(function(event) {
     event.preventDefault();
