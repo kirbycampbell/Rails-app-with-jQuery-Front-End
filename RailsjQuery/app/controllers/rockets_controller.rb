@@ -16,7 +16,7 @@ class RocketsController < ApplicationController
     @rocket = Rocket.find(params[:id])
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @rocket }
+      format.json { render json: @rocket}
     end
   end
 

@@ -13,24 +13,41 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery_ujs
-//= jquery3
+//= require jquery
 //= require_tree .
+
+//Show Page Next Function
 $(document).ready(function() {
-  $(function () {
-    $(".js-next").on("click", function(event) {
-      alert('You clicked the Hide link');
-      event.preventDefault();
-      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-      $.get("/rockets/" + nextId + ".json", function(data) {
-        var rocket = data;
-        $(".rocketName").text(rocket["name"]);
-        $(".rocketSpeed").text(rocket["top_speed"]);
-        $(".rocketCapacity").text(rocket["capcity"]);
-        $(".rocketPilot").text(rocket["pilot"]["last_name"]);
-        // re-set the id to current on the link
-        $(".js-next").attr("data-id", rocket["id"]);
-      });
+$(function () {
+  $(".js-next").on("click", function(event) {
+    event.preventDefault();
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/rockets/" + nextId + ".json", function(data) {
+      var rocket = data;
+      $(".rocketName").text(rocket["name"]);
+      $(".rocketSpeed").text(rocket["top_speed"]);
+      $(".rocketCapacity").text(rocket["capcity"]);
+      $(".rocketPilot").text(rocket["pilot"]["last_name"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", nextId);
     });
   });
-}
+});
+});
+
+//New Page dynamic submission
+$(function () {
+  $('form').submit(function(event) {
+    event.preventDefault();
+
+    var values = $(this).serialize();
+    var posting = $.post('/rockets', values);
+
+    posting.done(function(data){
+      var rocket = data;
+      $("#rocketName").text(rocket["name"]);
+      $("#rocketSpeed").text(rocket["top_speed"]);
+      $("#rocketPilot").text(rocket["pilot"]["last_name"]);
+    });
+  });
+});
