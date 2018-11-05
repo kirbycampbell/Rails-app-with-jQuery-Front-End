@@ -1,5 +1,30 @@
-<b>Rockets</b>
+<b>Rockets Index</b>
 
-<ul id="rockets">
-<%= render @rockets %>
-</ul>
+<% @rockets.each do |rocket| %>
+  <h3 class="rocketName"><%= rocket.name %></h3>
+  <button class="js-more" data-id="<%= rocket.id %>">More Info</button>
+  <p id="rocketSpeed-<%= rocket.id %>"></p>
+  <p id="rocketCapacity-<%= rocket.id %>"></p>
+  <p id="rocketPilot-<%= rocket.id %>"></p><br>
+
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+$(function() {
+  $(".js-more").on("click", function() {
+    var id = $(this).data("id");
+    alert(id);
+    $.get("/rockets/" + id + ".json", function(data) {
+      var rocket = data;
+      var rocketSpeed = "<p>" + rocket["top_speed"] + "</p>"";
+      $("#rocketSpeed-" + id).html(rocketSpeed);
+      var rocketCapacity = "<p>" + rocket["capacity"] + "</p>"";
+      $("#rocketCapacity-" + id).html(rocketCapacity);
+      var rocketPilot = "<p>" + rocket["pilot"] + "</p>"";
+      $("#rocketPilot-" + id).html(rocketPilot);
+    });
+  });
+});
+});
+</script>
