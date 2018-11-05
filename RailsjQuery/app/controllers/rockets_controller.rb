@@ -27,7 +27,7 @@ private
 
 def rocket_params
   #raise params.inspect
-  params.require(:rocket).permit(:name, :top_speed, :capacity, :rocket_engineer_relation, :pilot_id)
+  params.require(:rocket).permit(:name, :top_speed, :capacity, :pilot_id)
 end
 
 end
