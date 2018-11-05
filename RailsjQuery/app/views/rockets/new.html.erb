@@ -33,3 +33,27 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<div id="rocketResult">
+  <h2 id="rocketName"></h2>
+  <span id="rocketSpeed"></span>
+  <p id="rocketPilot"></p>
+</div>
+
+  <script type="text/javascript" charset="utf-8">
+    $(function () {
+      $('form').submit(function(event) {
+        event.preventDefault();
+
+        var values = $(this).serialize();
+        var posting = $.post('/rockets', values);
+
+        posting.done(function(data){
+          var rocket = data;
+          $("#rocketName").text(rocket["name"]);
+          $("#rocketSpeed").text(rocket["top_speed"]);
+          $("#rocketPilot").text(rocket["pilot"]);
+        });
+      });
+    });
+  </script>
