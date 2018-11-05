@@ -13,4 +13,24 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery_ujs
+//= jquery3
 //= require_tree .
+$(document).ready(function() {
+  $(function () {
+    $(".js-next").on("click", function(event) {
+      alert('You clicked the Hide link');
+      event.preventDefault();
+      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+      $.get("/rockets/" + nextId + ".json", function(data) {
+        var rocket = data;
+        $(".rocketName").text(rocket["name"]);
+        $(".rocketSpeed").text(rocket["top_speed"]);
+        $(".rocketCapacity").text(rocket["capcity"]);
+        $(".rocketPilot").text(rocket["pilot"]["last_name"]);
+        // re-set the id to current on the link
+        $(".js-next").attr("data-id", rocket["id"]);
+      });
+    });
+  });
+}
