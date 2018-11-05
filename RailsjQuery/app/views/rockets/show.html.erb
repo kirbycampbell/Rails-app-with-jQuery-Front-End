@@ -7,3 +7,26 @@
   <p><%= engineer.first_name %> <%= engineer.last_name %></p>
 
   <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+  $(function () {
+    $(".js-next").on("click", function(event) {
+      event.preventDefault();
+
+      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+      $.get("/rockets/" + nextId + ".json", function(data) {
+        var rocket = data;
+        $(".rocketName").text(rocket["name"]);
+        $(".rocketSpeed").text(rocket["top_speed"]);
+        $(".rocketCapacity").text(rocket["capcity"]);
+        $(".rocketPilot").text(rocket["pilot"]["last_name"]);
+        //$(".rocketEngineers").text(rocket["engineers"][0]["first_name"]);
+
+        // re-set the id to current on the link
+        $(".js-next").attr("data-id", nextId);
+      });
+    });
+  });
+  });
+  </script>

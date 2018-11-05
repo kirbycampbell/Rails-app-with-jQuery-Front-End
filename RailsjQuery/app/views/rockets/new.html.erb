@@ -37,3 +37,24 @@
   <span id="rocketSpeed"></span>
   <p id="rocketPilot"></p>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+$(function () {
+  $('form').submit(function(event) {
+    event.preventDefault();
+
+    var values = $(this).serialize();
+    var posting = $.post('/rockets', values);
+
+    posting.done(function(data){
+      var rocket = data;
+      $("#rocketName").text(rocket["name"]);
+      $("#rocketSpeed").text(rocket["top_speed"]);
+      $(".rocketCapacity").text(rocket["capcity"]);
+      $("#rocketPilot").text(rocket["pilot"]["last_name"]);
+    });
+  });
+});
+});
+</script>
